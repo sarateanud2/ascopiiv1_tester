@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+    <h:outputStylesheet library="css" name="myheader.css"/>
+    <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+</h:head> 
+<h:body> 
+	<ui:composition>
+		<h:form id="form">
+		    <p:dataTable id="tableStateDT" var="copii" value="#{modelSapp.allCopiiParintiSapp}" widgetVar="copiiSappTable" multiViewState="true"
+		                 rows="10" paginator="true"
+		                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                 rowsPerPageTemplate="5,10,15"
+		                 selectionMode="single" selection="#{modelSapp.selectedCopillSapp}" rowKey="#{copii.id}"
+		                 emptyMessage="No cars found with given criteria" filteredValue="#{modelSapp.filteredCopiiParinti}">
+		 
+		        <f:facet name="header">
+		            <p:outputPanel style="padding-left: 75%;">
+		                <h:outputText value="Search all fields: " />
+		                <p:inputText id="globalFilter" onkeyup="PF('copiiSappTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+		            </p:outputPanel>
+		        </f:facet>
+		 
+		       <p:ajax event="rowSelect" update=":form:copillDetail" oncomplete="PF('copillDialog').show()" />
+		 
+		        <p:column headerText="Nume" filterBy="#{copii.nume}" sortBy="#{copii.nume}" filterMatchMode="contains">
+		            <h:outputText value="#{copii.nume}" />
+		        </p:column>
+		 
+		        <p:column headerText="Prenume" filterBy="#{copii.prenume}" sortBy="#{copii.prenume}" filterMatchMode="startsWith">
+		            <h:outputText value="#{copii.prenume}" />
+		        </p:column>
+		 
+		        <p:column headerText="Data Nasterii" filterBy="#{copii.dataNasterii}" sortBy="#{copii.dataNasterii}" filterMatchMode="exact">
+		            <h:outputText value="#{copii.dataNasterii}" />
+		        </p:column>
+		        
+		        <p:column headerText="Localitate" filterBy="#{copii.localitateBean.denumire}" sortBy="#{copii.localitateBean.denumire}" filterMatchMode="exact">
+		            <h:outputText value="#{copii.localitateBean.denumire}" />
+		        </p:column>
+		        
+		        <p:column headerText="Strada" filterBy="#{copii.stradaBean.strada}" sortBy="#{copii.stradaBean.strada}" filterMatchMode="exact">
+		            <h:outputText value="#{copii.stradaBean.strada}" />
+		        </p:column>
+		        
+		    </p:dataTable>
+		    
+		    <p:dialog header="Copill Info" widgetVar="copillDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+		        <p:outputPanel id="copillDetail" style="text-align:left;">
+		           <p:panelGrid>
+		            
+		            	
+						 	<p:row>
+						 		<p:column>
+						      		<h:outputText value="Nume:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.nume}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row>
+						 		<p:column>
+						      		<h:outputText value="Prenume:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.prenume}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row>
+						 		<p:column>
+						      		<h:outputText value="Data Nasterii:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.dataNasterii}" />
+						      	</p:column>
+						    </p:row>
+
+        					<p:row>	
+	       						<p:column colspan="2">
+		       						<p:commandButton value="View Parinti"  id="ajaxViewParinti" styleClass="btn btn-info" >
+		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
+	   								</p:commandButton>
+	       						</p:column>
+       						</p:row>
+		    			
+			          </p:panelGrid>
+			          	
+					          	
+			        </p:outputPanel>
+			    </p:dialog>
+			    
+			    
+			    <p:dialog header="Add Copill" widgetVar="copillAdd" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="copillAddPan" style="text-align:center;">
+			            
+			            <p:dataTable id="tableStateDT2888" var="parinte" value="#{modelSapp.getParintiByCopiiSappId(modelSapp.selectedCopillSapp.id)}" widgetVar="parinteTable" multiViewState="true"
+			                 rows="10" paginator="true"
+			                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			                 rowsPerPageTemplate="5,10,15"
+			                 selectionMode="single" selection="#{modelSapp.selectedParinti}" rowKey="#{parinte.id}"
+			                 emptyMessage="No cars found with given criteria" filteredValue="#{modelSapp.filteredParinti}">
+			 
+					        <f:facet name="header">
+					            <p:outputPanel style="padding-left: 75%;">
+					                <h:outputText value="Search all fields: " />
+					                <p:inputText id="globalFilter" onkeyup="PF('parinteTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+					            </p:outputPanel>
+					        </f:facet>
+					 
+					       <p:ajax event="rowSelect" update=":form:parinteDetail" oncomplete="PF('parinteDialog').show()" />
+					 
+					        <p:column headerText="Nume" filterBy="#{parinte.nume}" sortBy="#{parinte.nume}" filterMatchMode="contains">
+					            <h:outputText value="#{parinte.nume}" />
+					        </p:column>
+					 
+					        <p:column headerText="Prenume" filterBy="#{parinte.prenume}" sortBy="#{parinte.prenume}" filterMatchMode="startsWith">
+					            <h:outputText value="#{parinte.prenume}" />
+					        </p:column>
+					 
+					        <p:column headerText="Data Nasterii" filterBy="#{parinte.dataNasterii}" sortBy="#{parinte.dataNasterii}" filterMatchMode="exact">
+					            <h:outputText value="#{parinte.dataNasterii}" />
+					        </p:column>
+					        
+					    </p:dataTable>
+			
+			        </p:outputPanel>
+			    </p:dialog>
+			    
+			    <p:dialog header="Parinti Info" widgetVar="parinteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="parinteDetail" style="text-align:center;">
+			            <p:panelGrid  columns="2" columnClasses="label,value">
+			                
+			                <h:outputText value="Nume:" />
+			                <h:outputText value="#{modelSapp.selectedParinti.nume}" />
+			 
+			                <h:outputText value="Prenume:" />
+			                <h:outputText value="#{modelSapp.selectedParinti.prenume}" />
+			 
+			                <h:outputText value="Data Nasterii:" />
+			                <h:outputText value="#{modelSapp.selectedParinti.nume}" />
+			 
+			          </p:panelGrid>
+			     </p:outputPanel>
+    </p:dialog>
+		</h:form>
+	</ui:composition>
+
+</h:body> 
+</html>

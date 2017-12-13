@@ -1,0 +1,10 @@
+@charset "UTF-8";
+social {
+    
+    padding: 10px 0;
+}
+
+.container_head{
+	height: 20px;
+	background: #000;
+}

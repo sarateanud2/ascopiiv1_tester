@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+    <h:outputStylesheet  library="css" name="myheader.css"/>
+    
+    <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+</h:head> 
+<h:body> 
+	<ui:insert name="header">
+		<ui:include src="/templates/header.xhtml" />
+		<div class="container">
+	  		<h3>Basic Navbar Example</h3>
+	  		<p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+		</div>
+		<div class="container-fluid">
+			<ui:include src="/templates/copiisapp.xhtml" />
+		</div>
+	</ui:insert>
+	
+	<h:outputStylesheet library="js" name="bootstrap.min.js" />
+	
+</h:body> 
+</html>
