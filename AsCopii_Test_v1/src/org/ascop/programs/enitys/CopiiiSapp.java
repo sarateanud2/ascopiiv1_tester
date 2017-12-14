@@ -194,5 +194,16 @@ public class CopiiiSapp implements Serializable {
 	public void setParintiis(List<Parintii> parintiis) {
 		this.parintiis = parintiis;
 	}
+	
+	public String getAddress() {
+		if(this.app != null) {
+		
+		return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+				this.getStradaBean().getStradaTypeBean().getStradaType()+ " " + this.getStradaBean().getStrada() + " " + this.nrCasa + " " + this.app;
+		} else {
+			return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+					this.getStradaBean().getStradaTypeBean().getStradaType()+ " " +this.getStradaBean().getStrada() + " " + this.nrCasa;
+		}
+	}
 
 }

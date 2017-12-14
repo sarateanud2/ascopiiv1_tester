@@ -13,6 +13,7 @@
     <h:outputStylesheet library="css" name="bootstrap.min.css"/>
     <h:outputStylesheet library="css" name="bootstrap.css"/>
     <h:outputStylesheet library="css" name="myheader.css"/>
+    <h:outputStylesheet  library="css" name="myCss.css"/>
     <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
 </h:head> 
 <h:body> 
@@ -23,7 +24,7 @@
 		                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 		                 rowsPerPageTemplate="5,10,15"
 		                 selectionMode="single" selection="#{modelSapp.selectedCopillSapp}" rowKey="#{copii.id}"
-		                 emptyMessage="No cars found with given criteria" filteredValue="#{modelSapp.filteredCopiiParinti}">
+		                 emptyMessage="Nu sunt copii cu asa parametri" filteredValue="#{modelSapp.filteredCopiiParinti}">
 		 
 		        <f:facet name="header">
 		            <p:outputPanel style="padding-left: 75%;">
@@ -46,22 +47,22 @@
 		            <h:outputText value="#{copii.dataNasterii}" />
 		        </p:column>
 		        
-		        <p:column headerText="Localitate" filterBy="#{copii.localitateBean.denumire}" sortBy="#{copii.localitateBean.denumire}" filterMatchMode="exact">
-		            <h:outputText value="#{copii.localitateBean.denumire}" />
+		        <p:column headerText="Categoria Art. 8" filterBy="#{copii.categArt8Tab.description}" sortBy="#{copii.categArt8Tab.description}" filterMatchMode="exact">
+		            <h:outputText value="#{copii.categArt8Tab.description}" />
 		        </p:column>
 		        
-		        <p:column headerText="Strada" filterBy="#{copii.stradaBean.strada}" sortBy="#{copii.stradaBean.strada}" filterMatchMode="exact">
-		            <h:outputText value="#{copii.stradaBean.strada}" />
+		        <p:column headerText="Adresa" filterBy="#{copii.address}" sortBy="#{copii.address}" filterMatchMode="exact">
+		            <h:outputText value="#{copii.address}" />
 		        </p:column>
 		        
 		    </p:dataTable>
 		    
 		    <p:dialog header="Copill Info" widgetVar="copillDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-		        <p:outputPanel id="copillDetail" style="text-align:left;">
+		        <p:outputPanel id="copillDetail" style="text-align:left;" >
 		           <p:panelGrid>
 		            
 		            	
-						 	<p:row>
+						 	<p:row styleClass="content2">
 						 		<p:column>
 						      		<h:outputText value="Nume:" />
 						     	</p:column>
@@ -70,7 +71,7 @@
 						      	</p:column>
 						    </p:row>
 						    
-						    <p:row>
+						    <p:row styleClass="content2">
 						 		<p:column>
 						      		<h:outputText value="Prenume:" />
 						     	</p:column>
@@ -79,12 +80,93 @@
 						      	</p:column>
 						    </p:row>
 						    
-						    <p:row>
+						    <p:row styleClass="content2">
 						 		<p:column>
 						      		<h:outputText value="Data Nasterii:" />
 						     	</p:column>
 						     	<p:column>
 						      		<h:outputText value="#{modelSapp.selectedCopillSapp.dataNasterii}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Data Nasterii:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.dataNasterii}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Adresa:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.address}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Data evidenta:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.dataEvidenta}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Categoria conf. art. 8:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.categArt8Tab.description}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Statutul:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.statutTab.description}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Forma de protectie:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.formaProtectie.description}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Forma de protectie:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.formaProtectie.description}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Data scoaterii evidenta:" />
+						     	</p:column>
+						     	<p:column>
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.dataScoateriiEvident}" />
+						      	</p:column>
+						    </p:row>
+						    
+						    <p:row styleClass="content2">
+						 		<p:column>
+						      		<h:outputText value="Note:" />
+						     	</p:column>
+						     	<p:column style="width:250px;height:200px">
+						      		<h:outputText value="#{modelSapp.selectedCopillSapp.note}" />
 						      	</p:column>
 						    </p:row>
 
@@ -95,7 +177,7 @@
 	   								</p:commandButton>
 	       						</p:column>
        						</p:row>
-		    			
+		    		
 			          </p:panelGrid>
 			          	
 					          	
