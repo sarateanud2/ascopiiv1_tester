@@ -172,10 +172,19 @@
 
         					<p:row>	
 	       						<p:column colspan="2">
-		       						<p:commandButton value="View Parinti"  id="ajaxViewParinti" styleClass="btn btn-info" >
+		       						<p:commandButton value="Info Parinti"  id="ajaxViewParinti" styleClass="btn btn-info" >
+		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
+	   								</p:commandButton>
+	   								
+	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" >
+		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
+	   								</p:commandButton>
+	   								
+	   								<p:commandButton value="Sterge"  id="ajaxStergeCopiiSapp" styleClass="btn btn-danger" >
 		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
 	   								</p:commandButton>
 	       						</p:column>
+	       						
        						</p:row>
 		    		
 			          </p:panelGrid>
