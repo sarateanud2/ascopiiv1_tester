@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" > 
+
+<h:head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+    <h:outputStylesheet library="css" name="myheader.css"/>
+    <h:outputStylesheet  library="css" name="myCss.css"/>
+    <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+</h:head> 
+<body> 
+	<p:dialog id="editDialog" modal="true" widgetVar="dlgEditCopii" dynamic="true" resizable="false" header="Edit copil"  >
+		<h:form id="formEdit" >
+			<p:outputPanel id="editCopillSappDetail" style="text-align:center;">
+            <p:panelGrid>            
+		            	
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Nume:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.nume}" style="width:100%"/>
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Prenume:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.prenume}" style="width:100%"/>
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Data Nasterii:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:calendar id="mask" value="#{modelSapp.selectedCopillSapp.dataNasterii}" pattern="dd-MM-yyyy" mask="true" />
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Data Evidenta:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:calendar id="mask" value="#{modelSapp.selectedCopillSapp.dataEvidenta}" pattern="dd-MM-yyyy" mask="true" />
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Data Evidenta:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:calendar id="mask" value="#{modelSapp.selectedCopillSapp.dataEvidenta}" pattern="dd-MM-yyyy" mask="true" />
+					   	</p:column>
+					</p:row>
+					
+					
+            	
+                
+	             
+	               
+ 				<p:growl id="growl2" life="2000" />
+                <p:commandButton value="Submit"  id="ajaxeditCopilSapp" styleClass="ui-priority-primary" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('editCopillSapp').hide()" >
+    			</p:commandButton>
+
+            </p:panelGrid>
+        </p:outputPanel>
+		</h:form>
+	</p:dialog>
+</body> 
+</html>

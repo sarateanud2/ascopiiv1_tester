@@ -18,6 +18,8 @@
 </h:head> 
 <h:body> 
 	<ui:composition>
+		
+	
 		<h:form id="form">
 		    <p:dataTable id="tableStateDT" var="copii" value="#{modelSapp.allCopiiParintiSapp}" widgetVar="copiiSappTable" multiViewState="true"
 		                 rows="10" paginator="true"
@@ -56,9 +58,11 @@
 		        </p:column>
 		        
 		    </p:dataTable>
-		    
+		    <ui:include src="edittemplate.xhtml" />
 		    <p:dialog header="Copill Info" widgetVar="copillDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+		    	
 		        <p:outputPanel id="copillDetail" style="text-align:left;" >
+		        
 		           <p:panelGrid>
 		            
 		            	
@@ -151,6 +155,8 @@
 						      		<h:outputText value="#{modelSapp.selectedCopillSapp.note}" />
 						      	</p:column>
 						    </p:row>
+						    
+						    
 
         					<p:row>	
 	       						<p:column colspan="2">
@@ -158,9 +164,11 @@
 		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
 	   								</p:commandButton>
 	   								
-	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" >
-		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
+	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" update=":form:formEdit">
+		   								<p:ajax event="click"  oncomplete="PF('dlgEditCopii').show()" />
 	   								</p:commandButton>
+	   								
+	   								
 	   								
 	   								<p:commandButton value="Sterge"  id="ajaxStergeCopiiSapp" styleClass="btn btn-danger" >
 		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
