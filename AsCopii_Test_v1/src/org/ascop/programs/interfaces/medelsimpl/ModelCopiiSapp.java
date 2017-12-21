@@ -81,7 +81,6 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 
 	@Override
 	public List<CopiiiSapp> getAllCopiiParintiSapp() {
-		
 		return this.services.getAllCopiiParintiSapp();
 	}
 
