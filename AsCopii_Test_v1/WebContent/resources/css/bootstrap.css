@@ -3824,29 +3824,29 @@ tbody.collapse.in {
   padding-left: 0;
 }
 .input-group .form-control {
-  position: relative;
-  z-index: 2;
-  float: left;
-  width: 100%;
-  margin-bottom: 0;
+  position: relative!important;
+  z-index: 2!important;
+  float: left!important;
+  width: 100%!important;
+  margin-bottom: 0!important;
 }
 .input-group .form-control:focus {
-  z-index: 3;
+  z-index: 3!important;
 }
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 46px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
-  border-radius: 6px;
+  height: 46px!important;
+  padding: 10px 16px!important;
+  font-size: 18px!important;
+  line-height: 1.3333333!important;
+  border-radius: 6px!important;
 }
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
 select.input-group-lg > .input-group-btn > .btn {
-  height: 46px;
-  line-height: 46px;
+  height: 46px!important;
+  line-height: 46px!important;
 }
 textarea.input-group-lg > .form-control,
 textarea.input-group-lg > .input-group-addon,
@@ -3920,6 +3920,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-addon input[type="checkbox"] {
   margin-top: 0;
 }
+
+ui-selectonemenu-label ui-inputfield ui-corner-all
+
+
+
+
 .input-group .form-control:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,

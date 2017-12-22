@@ -3,8 +3,21 @@
 .content2 {
     border: 1px solid #a8a8a8;
     background: #fff;
-    color: #000!important;
+    color: #000000!important;
     font-family: "Times New Roman", serif;
     font-size: 12pt;
 }
 
+.content3 {
+    border: 1px solid #a8a8a8;
+    background: #fff;
+    color: #ff0080!important;
+    font-family: "Times New Roman", serif;
+    font-size: 12pt;
+}
+
+.selectionCalendar {
+	color: red!important;
+}
+
+.ui-inputfield ui-widget .ui-state-default .ui-corner-all .hasDatepicker

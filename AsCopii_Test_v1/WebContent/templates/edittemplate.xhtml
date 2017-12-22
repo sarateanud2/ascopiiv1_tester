@@ -27,7 +27,7 @@
 					   		<h:outputText value="Nume:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.nume}" style="width:100%"/>
+					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.nume}" style="width:220px" />
 					   	</p:column>
 					</p:row>
 					
@@ -36,7 +36,7 @@
 					   		<h:outputText value="Prenume:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.prenume}" style="width:100%"/>
+					   		<p:inputText  value="#{modelSapp.selectedCopillSapp.prenume}" style="width:220px"/>
 					   	</p:column>
 					</p:row>
 					
@@ -54,7 +54,7 @@
 					   		<h:outputText value="Data Evidenta:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:calendar id="dataevidenta" value="#{modelSapp.selectedCopillSapp.dataEvidenta}" pattern="dd-MM-yyyy" mask="true" />
+					   		<p:calendar id="dataevidenta" value="#{modelSapp.selectedCopillSapp.dataEvidenta}" pattern="dd-MM-yyyy" mask="true" styleClass="selectionCalendar" />
 					   	</p:column>
 					</p:row>
 					
@@ -63,8 +63,19 @@
 					   		<h:outputText value="Categoria conf. art. 8:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:selectOneMenu id="console" value="#{modelSapp.selectedCopillSapp.categArt8Tab.description}" style="width:100%" >
+					   		<p:selectOneMenu id="console" value="#{modelSapp.selectedCopillSapp.categArt8Tab.description}" style="width:220px" >
 					   			<f:selectItems value="${modelCategoriiArtOpt.selectItems}" />
+					   		</p:selectOneMenu>
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
+					   		<h:outputText value="Statutul:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:selectOneMenu id="console2" value="#{modelSapp.selectedCopillSapp.statutTab.description}" style="width:220px" >
+					   			<f:selectItems value="${modelStatutTab.selectItems}" />
 					   		</p:selectOneMenu>
 					   	</p:column>
 					</p:row>
