@@ -12,6 +12,5 @@ public interface ModelCopiiSapp {
 	void addCopiiParintiList(List<CopiiiSapp> copiiSappList, List<Parintii> parintiSapp);
 	void updateCopil(CopiiiSapp copii);
 	void deleteCopilSapp(CopiiiSapp copil);
-	void switchEditMode();
 	
 }

@@ -95,8 +95,6 @@
 	    <artifactId>primefaces</artifactId>
 	    <version>6.1</version>
 	</dependency>
-	
-
 
   </dependencies>
 </project>

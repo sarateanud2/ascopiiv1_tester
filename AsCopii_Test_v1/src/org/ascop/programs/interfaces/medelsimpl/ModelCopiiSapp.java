@@ -9,7 +9,6 @@ import javax.faces.bean.SessionScoped;
 import org.ascop.programs.enitys.CopiiiSapp;
 import org.ascop.programs.enitys.Parintii;
 import org.ascop.programs.interfaces.services.ServicesCopiiSapp;
-import org.primefaces.context.RequestContext;
 
 @ManagedBean(name="modelSapp", eager=true)
 @SessionScoped
@@ -22,7 +21,6 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	private List<Parintii> filteredParinti;
     private CopiiiSapp selectedCopillSapp;
     private Parintii selectedParinti;
-    private boolean editMode;
     
     
 //	===================== GET/SET for services ==============================
@@ -37,14 +35,6 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
     
 //	===================== GET/SET for filtered and select ==============================
     
-	public boolean isEditMode() {
-		return editMode;
-	}
-
-	public void setEditMode(boolean editMode) {
-		this.editMode = editMode;
-	}
-	
 	public List<CopiiiSapp> getFilteredCopiiParinti() {
 		return filteredCopiiParinti;
 	}
@@ -81,6 +71,7 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 
 	@Override
 	public List<CopiiiSapp> getAllCopiiParintiSapp() {
+		
 		return this.services.getAllCopiiParintiSapp();
 	}
 
@@ -105,12 +96,6 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	@Override
 	public List<Parintii> getParintiByCopiiSappId(int id) {
 		return this.services.getParintiByCopiiSappId(id);
-	}
-
-	@Override
-	public void switchEditMode() {
-		editMode = true;
-        RequestContext.getCurrentInstance().execute("dlgEditCopii.show()");
 	}
 
 }
