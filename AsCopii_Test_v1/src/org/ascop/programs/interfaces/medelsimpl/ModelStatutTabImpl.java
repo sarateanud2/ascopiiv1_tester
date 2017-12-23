@@ -45,4 +45,8 @@ public class ModelStatutTabImpl implements ModelStatutTab {
 		return selectItems;
 	}
 
+	public void setSelectItems(List<SelectItem> selectItems) {
+		this.selectItems = selectItems;
+	}
+
 }

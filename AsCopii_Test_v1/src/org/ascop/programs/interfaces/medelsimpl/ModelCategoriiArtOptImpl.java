@@ -53,6 +53,12 @@ public class ModelCategoriiArtOptImpl implements ModelCategoriiArtOpt {
 	public List<SelectItem> getSelectItems() {
 		return selectItems;
 	}
+
+	public void setSelectItems(List<SelectItem> selectItems) {
+		this.selectItems = selectItems;
+	}
+	
+	
 	
 	
 
