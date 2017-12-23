@@ -196,13 +196,17 @@ public class CopiiiSapp implements Serializable {
 	}
 	
 	public String getAddress() {
-		if(this.app != null) {
-		
-		return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
-				this.getStradaBean().getStradaTypeBean().getStradaType()+ " " + this.getStradaBean().getStrada() + " " + this.nrCasa + " " + this.app;
-		} else {
+		if(this.localitateBean != null) {
+			if(this.app != null) {
+			
 			return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
-					this.getStradaBean().getStradaTypeBean().getStradaType()+ " " +this.getStradaBean().getStrada() + " " + this.nrCasa;
+					this.getStradaBean().getStradaTypeBean().getStradaType()+ " " + this.getStradaBean().getStrada() + " " + this.nrCasa + " " + this.app;
+			} else {
+				return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+						this.getStradaBean().getStradaTypeBean().getStradaType()+ " " +this.getStradaBean().getStrada() + " " + this.nrCasa;
+			}
+		} else {
+			return "nu este adresa";
 		}
 	}
 
