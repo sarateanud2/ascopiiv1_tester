@@ -14,10 +14,25 @@ public class ServiceFormaProtectieImpl implements ServiceFormaProtectie {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	
 
+	public EntityManager getEm() {
+		return em;
+	}
+
+
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
+
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<FormaProtectie> getAllFormeProtectie() {
-		return em.createQuery("SELECT fp FROM FormaProtectie fp", FormaProtectie.class).getResultList();
+		return this.em.createQuery("SELECT f FROM FormaProtectie f").getResultList();
 	}
 
 }

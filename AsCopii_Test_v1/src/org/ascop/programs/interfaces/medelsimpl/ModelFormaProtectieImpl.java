@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
 import org.ascop.programs.enitys.FormaProtectie;
 import org.ascop.programs.interfaces.medels.ModelFormaProtectie;
 import org.ascop.programs.interfaces.services.ServiceFormaProtectie;
 
+@ManagedBean(name="modelFormaProtectie", eager=true)
+@SessionScoped
 public class ModelFormaProtectieImpl implements ModelFormaProtectie {
 
-	@ManagedProperty("serviceFormaProtectie")
+	@ManagedProperty("#{serviceFormaProtectie}")
 	private ServiceFormaProtectie service;
 	
 	
