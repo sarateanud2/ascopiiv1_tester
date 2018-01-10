@@ -2,9 +2,11 @@ package org.ascop.programs.interfaces.medelsimpl;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.ascop.programs.enitys.CopiiiSapp;
 import org.ascop.programs.enitys.Parintii;
@@ -91,9 +93,9 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	}
 
 	@Override
-	public void updateCopil(CopiiiSapp copii) {
-		// TODO Auto-generated method stub
-
+	public void updateCopil() {
+		this.services.updateCopil(this.selectedCopillSapp);
+		 addMessage("Modificarea a trecut cu succes");
 	}
 
 	@Override
@@ -112,5 +114,10 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 		editMode = true;
         RequestContext.getCurrentInstance().execute("dlgEditCopii.show()");
 	}
+	
+	 public void addMessage(String summary) {
+	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	    }
 
 }

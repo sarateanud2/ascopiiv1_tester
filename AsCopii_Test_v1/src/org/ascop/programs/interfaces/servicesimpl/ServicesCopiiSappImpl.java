@@ -11,6 +11,7 @@ import org.ascop.programs.enitys.CopiiiSapp;
 import org.ascop.programs.enitys.Parintii;
 import org.ascop.programs.interfaces.services.ServicesCopiiSapp;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component("servicesCopiiSapp")
 public class ServicesCopiiSappImpl implements ServicesCopiiSapp {
@@ -41,15 +42,49 @@ public class ServicesCopiiSappImpl implements ServicesCopiiSapp {
 	}
 
 	@Override
+	@Transactional
 	public void updateCopil(CopiiiSapp copii) {
-		Query query = em.createQuery("Update CopiiiSapp " +
+		StringBuilder queryBuilder = new StringBuilder();
+		
+		queryBuilder.append("Update CopiiiSapp ");
+		queryBuilder.append("set nume = :nume, ");
+		queryBuilder.append("set prenume = :prenume, ");
+		queryBuilder.append("set dataNasterii = :dataNasterii, ");
+		queryBuilder.append("set dataEvidenta = :dataEvidenta, ");
+		queryBuilder.append("set categArt8Tab = :categArt8Tab, ");
+		queryBuilder.append("set statutTab = :statutTab, ");
+		queryBuilder.append("set formaProtectie = :formaProtectie, ");
+		queryBuilder.append("set dataScoateriiEvident = :dataScoateriiEvident, ");
+		queryBuilder.append("set note = :note, ");
+		queryBuilder.append("where id = :id");
+		
+		Query query = em.createQuery(queryBuilder.toString());
+		
+		query.setParameter("nume", copii.getNume());
+		query.setParameter("prenume", copii.getPrenume());
+		query.setParameter("dataNasterii", copii.getDataNasterii());
+		query.setParameter("dataEvidenta", copii.getDataEvidenta());
+		query.setParameter("categArt8Tab", copii.getCategArt8Tab());
+		query.setParameter("statutTab", copii.getStatutTab());
+		query.setParameter("formaProtectie", copii.getFormaProtectie());
+		query.setParameter("dataScoateriiEvident", copii.getDataScoateriiEvident());
+		query.setParameter("note", copii.getNote());		
+		query.setParameter("id", copii.getId());
+		query.executeUpdate();
+		
+		
+		
+		
+		
+		
+		/*Query query = em.createQuery("Update CopiiiSapp " +
 										"set nume = :nume, " +
 										"prenume = :prenume " +
 										"where id = :id");
 						query.setParameter("nume", copii.getNume());
 						query.setParameter("prenume", copii.getPrenume());
 						query.setParameter("id", copii.getId());
-						query.executeUpdate();
+						query.executeUpdate();*/
 
 	}
 

@@ -58,7 +58,7 @@
 		        </p:column>
 		        
 		    </p:dataTable>
-		    <ui:include src="edittemplate.xhtml" />
+		    
 		    <p:dialog header="Copill Info" widgetVar="copillDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 		    	
 		        <p:outputPanel id="copillDetail" style="text-align:left;" >
@@ -164,7 +164,7 @@
 		   								<p:ajax event="click" update=":form:copillAddPan" oncomplete="PF('copillAdd').show()" />
 	   								</p:commandButton>
 	   								
-	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" update=":form:formEdit">
+	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" >
 		   								<p:ajax event="click"  oncomplete="PF('dlgEditCopii').show()" />
 	   								</p:commandButton>
 	   								
@@ -182,7 +182,7 @@
 					          	
 			        </p:outputPanel>
 			    </p:dialog>
-			    
+			    <ui:include src="edittemplate.xhtml" />
 			    
 			    <p:dialog header="Add Copill" widgetVar="copillAdd" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 			        <p:outputPanel id="copillAddPan" style="text-align:center;">

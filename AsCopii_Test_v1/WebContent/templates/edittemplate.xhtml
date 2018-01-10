@@ -18,7 +18,7 @@
 </h:head> 
 <body> 
 	<p:dialog id="editDialog" modal="true" widgetVar="dlgEditCopii" dynamic="true" resizable="false" header="Edit copil"  >
-		<h:form id="formEdit" >
+		<h:form  >
 			<p:outputPanel id="editCopillSappDetail" style="text-align:center;">
             <p:panelGrid>            
 		            	
@@ -62,8 +62,9 @@
 						<p:column>
 					   		<h:outputText value="Categoria conf. art. 8:" />
 					   	</p:column>
+					   	
 					   	<p:column>
-					   		<p:selectOneMenu id="console" value="#{modelSapp.selectedCopillSapp.categArt8Tab.description}" style="width:250px" >
+					   		<p:selectOneMenu id="console" value="#{modelSapp.selectedCopillSapp.categArt8Tab}" converter="#{modelCategoriiArtOpt}" style="width:250px" >
 					   			<f:selectItems value="${modelCategoriiArtOpt.selectItems}" />
 					   		</p:selectOneMenu>
 					   	</p:column>
@@ -74,12 +75,10 @@
 					   		<h:outputText value="Statutul:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:selectOneMenu id="console2" value="#{modelSapp.selectedCopillSapp.statutTab.description}" style="width:250px" >
+					   		<p:selectOneMenu id="console2" value="#{modelSapp.selectedCopillSapp.statutTab}" converter="#{modelStatutTab}" style="width:250px" >
 					   			<f:selectItems value="${modelStatutTab.selectItems}" />
 					   		</p:selectOneMenu>
 					   	</p:column>
-					   	
-					   	
 					</p:row>
 					
 					<p:row styleClass="content2">
@@ -87,7 +86,7 @@
 					   		<h:outputText value="Forma de Protectie:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:selectOneMenu id="console3" value="#{modelSapp.selectedCopillSapp.formaProtectie.description}" style="width:250px" >
+					   		<p:selectOneMenu id="console3" value="#{modelSapp.selectedCopillSapp.formaProtectie}" converter="#{modelFormaProtectie}" style="width:250px" >
 					   			<f:selectItems value="${modelFormaProtectie.selectItems}" />
 					   		</p:selectOneMenu>
 					   	</p:column>
@@ -110,6 +109,15 @@
 					   		<p:inputTextarea rows="10" cols="22" value="#{modelSapp.selectedCopillSapp.note}" styleClass="content4" />
 					   	</p:column>
 					</p:row>
+					
+					<p:growl id="growl2" life="2000" />
+					
+					<p:row styleClass="content2">
+						<p:column>
+							<p:commandButton value="Editeaza" action="#{modelSapp.updateCopil()}" id="ajaxeditCopilSapp" styleClass="ui-priority-primary" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()" />
+						</p:column>
+					</p:row>
+					
 
 
             </p:panelGrid>

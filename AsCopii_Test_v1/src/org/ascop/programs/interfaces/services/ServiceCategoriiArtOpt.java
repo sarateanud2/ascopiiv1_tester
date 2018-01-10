@@ -6,4 +6,5 @@ import org.ascop.programs.enitys.CategArt8Tab;
 
 public interface ServiceCategoriiArtOpt {
 	List<CategArt8Tab> getAllCategoriiArtOpt();
+	List<CategArt8Tab> findById(int id);
 }
