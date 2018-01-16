@@ -46,7 +46,7 @@ public class ServicesCopiiSappImpl implements ServicesCopiiSapp {
 	public void updateCopil(CopiiiSapp copii) {
 		StringBuilder queryBuilder = new StringBuilder();
 		
-		queryBuilder.append("Update CopiiiSapp ");
+/*		queryBuilder.append("Update CopiiiSapp ");
 		queryBuilder.append("set nume = :nume, ");
 		queryBuilder.append("set prenume = :prenume, ");
 		queryBuilder.append("set dataNasterii = :dataNasterii, ");
@@ -55,22 +55,37 @@ public class ServicesCopiiSappImpl implements ServicesCopiiSapp {
 		queryBuilder.append("set statutTab = :statutTab, ");
 		queryBuilder.append("set formaProtectie = :formaProtectie, ");
 		queryBuilder.append("set dataScoateriiEvident = :dataScoateriiEvident, ");
-		queryBuilder.append("set note = :note, ");
-		queryBuilder.append("where id = :id");
+		queryBuilder.append("set note = :note ");
+		queryBuilder.append("where id = :id");*/
 		
-		Query query = em.createQuery(queryBuilder.toString());
+		String strQuery ;
+		
+		Query query = em.createQuery("Update CopiiiSapp set " +
+				"nume = :nume, " +
+				"prenume = :prenume, " +
+				"dataNasterii = :dataNasterii " +
+//				"dataEvidenta = :dataEvidenta, " +
+//				"categArt8Tab = :categArt8Tab, " +
+//				"statutTab = :statutTab, " +
+//				"formaProtectie = :formaProtectie, " +
+//				"dataScoateriiEvident = :dataScoateriiEvident, " +
+//				"note = :note " +
+				"where id = :id");
 		
 		query.setParameter("nume", copii.getNume());
+//		System.out.println("nume: " + copii.getNume());
 		query.setParameter("prenume", copii.getPrenume());
+		//System.out.println("nume: " + copii.getNume());
 		query.setParameter("dataNasterii", copii.getDataNasterii());
-		query.setParameter("dataEvidenta", copii.getDataEvidenta());
-		query.setParameter("categArt8Tab", copii.getCategArt8Tab());
-		query.setParameter("statutTab", copii.getStatutTab());
-		query.setParameter("formaProtectie", copii.getFormaProtectie());
-		query.setParameter("dataScoateriiEvident", copii.getDataScoateriiEvident());
-		query.setParameter("note", copii.getNote());		
+//		query.setParameter("dataEvidenta", copii.getDataEvidenta());
+//		query.setParameter("categArt8Tab", copii.getCategArt8Tab());
+//		query.setParameter("statutTab", copii.getStatutTab());
+//		query.setParameter("formaProtectie", copii.getFormaProtectie());
+//		query.setParameter("dataScoateriiEvident", copii.getDataScoateriiEvident());
+//		query.setParameter("note", copii.getNote());		
 		query.setParameter("id", copii.getId());
 		query.executeUpdate();
+		
 		
 		
 		

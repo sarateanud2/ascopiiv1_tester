@@ -1,6 +1,7 @@
 package org.ascop.programs.interfaces.medelsimpl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
+import org.ascop.programs.comparators.ListComparator;
 import org.ascop.programs.enitys.StatutTab;
 import org.ascop.programs.interfaces.medels.ModelStatutTab;
 import org.ascop.programs.interfaces.services.ServiceStatutTab;
@@ -35,13 +37,16 @@ public class ModelStatutTabImpl implements ModelStatutTab, Converter {
 
 	private List<SelectItem> selectItems = new ArrayList<SelectItem>();
 	private List<StatutTab> statutTabList;
-	private Map<Long, StatutTab> map;
+	private Map<Integer, StatutTab> map;
 	
+	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
 		map = new HashMap<>();
 		statutTabList = this.getAllStatutTab();
-		statutTabList.forEach(stat -> selectItems.add(new SelectItem(stat, stat.getDescription())));
+		Collections.sort(statutTabList, ListComparator.getInstance());
+		statutTabList.forEach(stat -> { map.put(stat.getId(), stat);
+										selectItems.add(new SelectItem(stat, stat.getDescription()));});
 	}
 
 	@Override
@@ -63,7 +68,7 @@ public class ModelStatutTabImpl implements ModelStatutTab, Converter {
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
-		return map.get(Long.valueOf(arg2));
+		return map.get(Integer.valueOf(arg2));
 	}
 
 	@Override

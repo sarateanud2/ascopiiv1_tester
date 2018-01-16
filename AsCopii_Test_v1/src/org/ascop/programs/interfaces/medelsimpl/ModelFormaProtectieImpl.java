@@ -1,6 +1,7 @@
 package org.ascop.programs.interfaces.medelsimpl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
+import org.ascop.programs.comparators.ListComparator;
 import org.ascop.programs.enitys.FormaProtectie;
 import org.ascop.programs.interfaces.medels.ModelFormaProtectie;
 import org.ascop.programs.interfaces.services.ServiceFormaProtectie;
@@ -35,7 +37,7 @@ public class ModelFormaProtectieImpl implements ModelFormaProtectie, Converter {
 
 	private List<SelectItem> selectItems = new ArrayList<SelectItem>();
 	
-	private Map<Long, FormaProtectie> map;
+	private Map<Integer, FormaProtectie> map;
 	List<FormaProtectie> formaList;
 	
 	public List<SelectItem> getSelectItems() {
@@ -46,11 +48,14 @@ public class ModelFormaProtectieImpl implements ModelFormaProtectie, Converter {
 		this.selectItems = selectItems;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
 		map = new HashMap<>();
 		formaList = this.getAllFormeProtectie();
-		formaList.forEach(f -> selectItems.add(new SelectItem(f, f.getDescription())));
+		Collections.sort(formaList, ListComparator.getInstance());
+		formaList.forEach(f -> {map.put(f.getId(), f);
+								selectItems.add(new SelectItem(f, f.getDescription()));});
 	}
 
 	@Override
@@ -61,7 +66,7 @@ public class ModelFormaProtectieImpl implements ModelFormaProtectie, Converter {
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
 		
-		return map.get(Long.valueOf(arg2));
+		return map.get(Integer.valueOf(arg2));
 	}
 
 	@Override
