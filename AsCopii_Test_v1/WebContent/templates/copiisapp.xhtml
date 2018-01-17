@@ -165,9 +165,12 @@
 	   								</p:commandButton>
 	   								
 	   								<p:commandButton value="Editare"  id="ajaxEditCopiiSapp" styleClass="btn btn-warning" >
-		   								<p:ajax event="click"  oncomplete="PF('dlgEditCopii').show()" />
+		   								<p:ajax event="click" update=":form:editCopillSappDetail"  oncomplete="PF('dlgEditCopii').show()" />
+		   								<f:setPropertyActionListener value="#{modelSapp.selectedCopillSapp}" target="#{modelSapp.selectedCopillSapp}" />
 	   								</p:commandButton>
 	   								
+	   								
+
 	   								
 	   								
 	   								<p:commandButton value="Sterge"  id="ajaxStergeCopiiSapp" styleClass="btn btn-danger" >
@@ -183,7 +186,7 @@
 			        </p:outputPanel>
 			    </p:dialog>
 			    
-			    <ui:include src="edittemplate.xhtml" />
+			    
 			    
 			    <p:dialog header="Add Copill" widgetVar="copillAdd" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 			        <p:outputPanel id="copillAddPan" style="text-align:center;">
@@ -220,6 +223,8 @@
 			
 			        </p:outputPanel>
 			    </p:dialog>
+			    
+			    <ui:include src="edittemplate.xhtml" />
 			    
 			    <p:dialog header="Parinti Info" widgetVar="parinteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 			        <p:outputPanel id="parinteDetail" style="text-align:center;">
