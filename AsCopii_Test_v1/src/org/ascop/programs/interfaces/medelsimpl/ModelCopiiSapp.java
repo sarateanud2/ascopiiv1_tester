@@ -79,7 +79,11 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 		this.selectedParinti = selectedParinti;
 	}
 	
+	
+	
 //	=========================================================================
+
+
 
 	@Override
 	public List<CopiiiSapp> getAllCopiiParintiSapp() {
@@ -119,5 +123,8 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	    }
+
+
+	 
 
 }

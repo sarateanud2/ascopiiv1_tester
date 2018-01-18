@@ -22,10 +22,10 @@
 	
 		<h:form id="form">
 		    <p:dataTable id="tableStateDT" var="copii" value="#{modelSapp.allCopiiParintiSapp}" widgetVar="copiiSappTable" multiViewState="true"
-		                 rows="10" paginator="true"
+		                 rows="10" paginator="true" 
 		                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-		                 rowsPerPageTemplate="5,10,15"
-		                 selectionMode="single" selection="#{modelSapp.selectedCopillSapp}" rowKey="#{copii.id}"
+		                 rowsPerPageTemplate="5,10,15,20,25"
+		                 selectionMode="single" selection="#{modelSapp.selectedCopillSapp}" rowKey="#{copii.nume}"
 		                 emptyMessage="Nu sunt copii cu asa parametri" filteredValue="#{modelSapp.filteredCopiiParinti}">
 		 
 		        <f:facet name="header">
@@ -37,23 +37,23 @@
 		 
 		       <p:ajax event="rowSelect" update=":form:copillDetail" oncomplete="PF('copillDialog').show()" />
 		 
-		        <p:column headerText="Nume" filterBy="#{copii.nume}" sortBy="#{copii.nume}" filterMatchMode="contains">
+		        <p:column headerText="Nume" sortBy="#{copii.nume}" filterBy="#{copii.nume}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.nume}" />
 		        </p:column>
 		 
-		        <p:column headerText="Prenume" filterBy="#{copii.prenume}" sortBy="#{copii.prenume}" filterMatchMode="startsWith">
+		        <p:column headerText="Prenume" filterBy="#{copii.prenume}" sortBy="#{copii.prenume}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.prenume}" />
 		        </p:column>
 		 
-		        <p:column headerText="Data Nasterii" filterBy="#{copii.dataNasterii}" sortBy="#{copii.dataNasterii}" filterMatchMode="exact">
+		        <p:column headerText="Data Nasterii" filterBy="#{copii.dataNasterii}" sortBy="#{copii.dataNasterii}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.dataNasterii}" />
 		        </p:column>
 		        
-		        <p:column headerText="Categoria Art. 8" filterBy="#{copii.categArt8Tab.description}" sortBy="#{copii.categArt8Tab.description}" filterMatchMode="exact">
+		        <p:column headerText="Categoria Art. 8" filterBy="#{copii.categArt8Tab.description}" sortBy="#{copii.categArt8Tab.description}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.categArt8Tab.description}" />
 		        </p:column>
 		        
-		        <p:column headerText="Adresa" filterBy="#{copii.address}" sortBy="#{copii.address}" filterMatchMode="exact">
+		        <p:column headerText="Adresa" filterBy="#{copii.address}" sortBy="#{copii.address}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.address}" />
 		        </p:column>
 		        

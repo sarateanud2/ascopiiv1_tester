@@ -25,6 +25,8 @@
     </plugins>
   </build>
   
+  
+  
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 	<dependency>
@@ -95,8 +97,6 @@
 	    <artifactId>primefaces</artifactId>
 	    <version>6.1</version>
 	</dependency>
-	
-
 
   </dependencies>
 </project>
