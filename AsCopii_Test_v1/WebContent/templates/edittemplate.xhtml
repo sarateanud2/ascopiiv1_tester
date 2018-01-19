@@ -115,7 +115,7 @@
 					
 					<p:growl id="growl2" life="2000" />
 					<p:row styleClass="content2">
-						<p:column>
+						<p:column colspan="2">
 							<p:commandButton value="Editeaza" actionListener="#{modelSapp.updateCopil()}" id="ajaxeditCopilSapp" styleClass="btn btn-success" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()" />
 						</p:column>
 					</p:row>
