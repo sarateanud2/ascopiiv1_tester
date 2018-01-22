@@ -38,7 +38,7 @@ public class ModelFormaProtectieImpl implements ModelFormaProtectie, Converter {
 	private List<SelectItem> selectItems = new ArrayList<SelectItem>();
 	
 	private Map<Integer, FormaProtectie> map;
-	List<FormaProtectie> formaList;
+	private List<FormaProtectie> formaList;
 	
 	public List<SelectItem> getSelectItems() {
 		return selectItems;

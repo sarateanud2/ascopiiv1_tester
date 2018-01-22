@@ -96,6 +96,21 @@
 					
 					<p:row styleClass="content2">
 						<p:column>
+					   		<h:outputText value="Adresa:" />
+					   	</p:column>
+					   	<p:column>
+					   		<p:selectOneMenu id="strType" value="#{modelSapp.selectedCopillSapp.stradaBean.stradaTypeBean}" converter="#{modelStradaType}" style="width:250px" >
+					   			<f:selectItems value="${modelStradaType.selectItems}" />
+					   		</p:selectOneMenu>
+					   		<br />
+					   		<p:selectOneMenu id="str" value="#{modelSapp.selectedCopillSapp.stradaBean}" converter="#{modelStrada}" style="width:250px" >
+					   			<f:selectItems value="${modelStrada.selectItems}" />
+					   		</p:selectOneMenu>
+					   	</p:column>
+					</p:row>
+					
+					<p:row styleClass="content2">
+						<p:column>
 					   		<h:outputText value="Data Scoatere Evidenta:" />
 					   	</p:column>
 					   	<p:column>
