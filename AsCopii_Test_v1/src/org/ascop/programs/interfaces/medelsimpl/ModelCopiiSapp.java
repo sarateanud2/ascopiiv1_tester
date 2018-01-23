@@ -122,8 +122,30 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	 public void addMessage(String summary) {
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 	        FacesContext.getCurrentInstance().addMessage(null, message);
-	    }
-
+	 }
+	 
+	 /*public String getAddress() {
+			if(this.localitateBean != null) {
+				if(this.app != null) {
+				
+				return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+						this.getStradaBean().getStradaTypeBean().getStradaType()+ " " + this.getStradaBean().getStrada() + " " + this.nrCasa + " " + this.app;
+				} else {
+					return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+							this.getStradaBean().getStradaTypeBean().getStradaType()+ " " +this.getStradaBean().getStrada() + " " + this.nrCasa;
+				}
+			} else {
+				return "nu este adresa";
+			}
+		}
+*/
+	 
+	 public void cancelModes() {
+		 RequestContext.getCurrentInstance().execute("dlgEditCopii.hide()");
+		 addMessage("Modificarea a trecut cu succes");
+//		 RequestContext.getCurrentInstance().update("form:copillDetail");
+		 
+	 } 
 
 	 
 

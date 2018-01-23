@@ -19,7 +19,7 @@
 <body> 
 	<ui:composition>
 	<p:dialog id="editDialog" modal="true" widgetVar="dlgEditCopii" dynamic="true" resizable="false" header="Edit copil"  >
-		
+			<p:ajax event="close"  listener="#{modelSapp.cancelModes()}" />
 			<p:outputPanel id="editCopillSappDetail" style="text-align:center;">
 
             <p:panelGrid>            
@@ -99,9 +99,7 @@
 					   		<h:outputText value="Adresa:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:selectOneMenu id="strType" value="#{modelSapp.selectedCopillSapp.stradaBean.stradaTypeBean}" converter="#{modelStradaType}" style="width:250px" >
-					   			<f:selectItems value="${modelStradaType.selectItems}" />
-					   		</p:selectOneMenu>
+					   		
 					   		<br />
 					   		<p:selectOneMenu id="str" value="#{modelSapp.selectedCopillSapp.stradaBean}" converter="#{modelStrada}" style="width:250px" >
 					   			<f:selectItems value="${modelStrada.selectItems}" />
@@ -132,6 +130,9 @@
 					<p:row styleClass="content2">
 						<p:column colspan="2">
 							<p:commandButton value="Editeaza" actionListener="#{modelSapp.updateCopil()}" id="ajaxeditCopilSapp" styleClass="btn btn-success" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()" />
+						</p:column>
+						<p:column colspan="2">
+							<p:commandButton value="Cancel"  id="ajaxeditCopilSapp2" styleClass="btn btn-success"  oncomplete="PF('dlgEditCopii').hide()" />
 						</p:column>
 					</p:row>
 					
