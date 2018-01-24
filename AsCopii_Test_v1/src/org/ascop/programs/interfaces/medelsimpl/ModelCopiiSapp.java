@@ -124,21 +124,7 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	 
-	 /*public String getAddress() {
-			if(this.localitateBean != null) {
-				if(this.app != null) {
-				
-				return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
-						this.getStradaBean().getStradaTypeBean().getStradaType()+ " " + this.getStradaBean().getStrada() + " " + this.nrCasa + " " + this.app;
-				} else {
-					return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
-							this.getStradaBean().getStradaTypeBean().getStradaType()+ " " +this.getStradaBean().getStrada() + " " + this.nrCasa;
-				}
-			} else {
-				return "nu este adresa";
-			}
-		}
-*/
+
 	 
 	 public void cancelModes() {
 		 RequestContext.getCurrentInstance().execute("dlgEditCopii.hide()");

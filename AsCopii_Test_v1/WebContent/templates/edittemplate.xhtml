@@ -17,9 +17,9 @@
     <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
 </h:head> 
 <body> 
-	<ui:composition>
+	
 	<p:dialog id="editDialog" modal="true" widgetVar="dlgEditCopii" dynamic="true" resizable="false" header="Edit copil"  >
-			<p:ajax event="close"  listener="#{modelSapp.cancelModes()}" />
+		
 			<p:outputPanel id="editCopillSappDetail" style="text-align:center;">
 
             <p:panelGrid>            
@@ -131,9 +131,6 @@
 						<p:column colspan="2">
 							<p:commandButton value="Editeaza" actionListener="#{modelSapp.updateCopil()}" id="ajaxeditCopilSapp" styleClass="btn btn-success" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()" />
 						</p:column>
-						<p:column colspan="2">
-							<p:commandButton value="Cancel"  id="ajaxeditCopilSapp2" styleClass="btn btn-success"  oncomplete="PF('dlgEditCopii').hide()" />
-						</p:column>
 					</p:row>
 					
 
@@ -145,6 +142,6 @@
 		
 		
 	</p:dialog>
-	</ui:composition>
+
 </body> 
 </html>
