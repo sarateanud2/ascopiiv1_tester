@@ -35,7 +35,7 @@
 		            </p:outputPanel>
 		        </f:facet>
 		 
-		       <p:ajax event="rowSelect" update=":form:copillDetail, :form:editCopillSappDetail" oncomplete="PF('copillDialog').show(), PF('dlgEditCopii').hide()" />
+		       <p:ajax event="rowSelect" update=":form:copillDetail, :form:editCopillSappDetail" oncomplete="PF('copillDialog').show()" />
 		 
 		        <p:column headerText="Nume" sortBy="#{copii.nume}" filterBy="#{copii.nume}" filterMatchMode="contains">
 		            <h:outputText value="#{copii.nume}" />
