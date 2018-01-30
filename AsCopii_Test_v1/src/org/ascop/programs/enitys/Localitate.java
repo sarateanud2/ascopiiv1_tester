@@ -27,7 +27,7 @@ public class Localitate implements Serializable {
 	//bi-directional many-to-one association to LocalitateType
 	@ManyToOne
 	@JoinColumn(name="localitate_type")
-	private LocalitateType localitateTypeBean;
+	private LocalitateTypes localitateTypeBean;
 
 	public Localitate() {
 	}
@@ -70,12 +70,44 @@ public class Localitate implements Serializable {
 		return copiiiSapp;
 	}
 
-	public LocalitateType getLocalitateTypeBean() {
+	public LocalitateTypes getLocalitateTypeBean() {
 		return this.localitateTypeBean;
 	}
 
-	public void setLocalitateTypeBean(LocalitateType localitateTypeBean) {
+	public void setLocalitateTypeBean(LocalitateTypes localitateTypeBean) {
 		this.localitateTypeBean = localitateTypeBean;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Localitate other = (Localitate) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return  localitateTypeBean.getTypeLocalitatess() + " " + denumire;
+	}
+	
+	
 
 }

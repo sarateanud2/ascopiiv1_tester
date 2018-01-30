@@ -44,63 +44,42 @@ public class ServicesCopiiSappImpl implements ServicesCopiiSapp {
 	@Override
 	@Transactional
 	public void updateCopil(CopiiiSapp copii) {
-//		StringBuilder queryBuilder = new StringBuilder();
+		StringBuilder queryBuilder = new StringBuilder();
 		
-/*		queryBuilder.append("Update CopiiiSapp ");
-		queryBuilder.append("set nume = :nume, ");
-		queryBuilder.append("set prenume = :prenume, ");
-		queryBuilder.append("set dataNasterii = :dataNasterii, ");
-		queryBuilder.append("set dataEvidenta = :dataEvidenta, ");
-		queryBuilder.append("set categArt8Tab = :categArt8Tab, ");
-		queryBuilder.append("set statutTab = :statutTab, ");
-		queryBuilder.append("set formaProtectie = :formaProtectie, ");
-		queryBuilder.append("set dataScoateriiEvident = :dataScoateriiEvident, ");
-		queryBuilder.append("set note = :note ");
-		queryBuilder.append("where id = :id");*/
+		queryBuilder.append("Update CopiiiSapp set ");
+		queryBuilder.append("nume = :nume, ");
+		queryBuilder.append("prenume = :prenume, ");
+		queryBuilder.append("dataNasterii = :dataNasterii, ");
+		queryBuilder.append("dataEvidenta = :dataEvidenta, ");
+		queryBuilder.append("categArt8Tab = :categArt8Tab, ");
+		queryBuilder.append("statutTab = :statutTab, ");
+		queryBuilder.append("formaProtectie = :formaProtectie, ");
+		queryBuilder.append("localitateBean = :localitateBean, ");
+		queryBuilder.append("stradaBean = :stradaBean, ");
+		queryBuilder.append("nrCasa = :nrCasa, ");
+		queryBuilder.append("app = :app, ");
+		queryBuilder.append("dataScoateriiEvident = :dataScoateriiEvident, ");
+		queryBuilder.append("note = :note ");
+		queryBuilder.append("where id = :id");
 		
-//		String strQuery ;
-		
-		Query query = em.createQuery("Update CopiiiSapp set " +
-				"nume = :nume, " +
-				"prenume = :prenume, " +
-				"dataNasterii = :dataNasterii, " +
-				"dataEvidenta = :dataEvidenta, " +
-				"categArt8Tab = :categArt8Tab, " +
-				"statutTab = :statutTab, " +
-				"formaProtectie = :formaProtectie, " +
-				"dataScoateriiEvident = :dataScoateriiEvident, " +
-				"note = :note " +
-				"where id = :id");
+		Query query = em.createQuery(queryBuilder.toString());
 		
 		query.setParameter("nume", copii.getNume());
-//		System.out.println("nume: " + copii.getNume());
 		query.setParameter("prenume", copii.getPrenume());
-		//System.out.println("nume: " + copii.getNume());
 		query.setParameter("dataNasterii", copii.getDataNasterii());
 		query.setParameter("dataEvidenta", copii.getDataEvidenta());
 		query.setParameter("categArt8Tab", copii.getCategArt8Tab());
 		query.setParameter("statutTab", copii.getStatutTab());
 		query.setParameter("formaProtectie", copii.getFormaProtectie());
+		query.setParameter("localitateBean", copii.getLocalitateBean());
+		query.setParameter("stradaBean", copii.getStradaBean());
+		query.setParameter("nrCasa", copii.getNrCasa());
+		query.setParameter("app", copii.getApp());
 		query.setParameter("dataScoateriiEvident", copii.getDataScoateriiEvident());
 		query.setParameter("note", copii.getNote());		
 		query.setParameter("id", copii.getId());
 		query.executeUpdate();
 		
-		
-		
-		
-		
-		
-		
-		/*Query query = em.createQuery("Update CopiiiSapp " +
-										"set nume = :nume, " +
-										"prenume = :prenume " +
-										"where id = :id");
-						query.setParameter("nume", copii.getNume());
-						query.setParameter("prenume", copii.getPrenume());
-						query.setParameter("id", copii.getId());
-						query.executeUpdate();*/
-
 	}
 
 	@Override

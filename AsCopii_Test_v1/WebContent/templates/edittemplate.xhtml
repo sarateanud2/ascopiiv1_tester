@@ -99,17 +99,22 @@
 					   		<h:outputText value="Adresa:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:selectOneMenu id="strTyepe" value="#{modelSapp.selectedCopillSapp.stradaBean.stradaTypeBean}" converter="#{modelStradaType}" style="width:250px" >
-					   			<f:selectItems value="${modelStradaType.selectItems}" />
+					   		
+					   		<p:selectOneMenu id="localitate" value="#{modelSapp.selectedCopillSapp.localitateBean}" converter="#{modelLocalitate}" style="width:250px" >
+					   			<f:selectItems value="${modelLocalitate.selectedLocalitate}" />
 					   		</p:selectOneMenu>
 					   		<br />
+					   		
 					   		<p:selectOneMenu id="str" value="#{modelSapp.selectedCopillSapp.stradaBean}" converter="#{modelStrada}" style="width:250px" >
 					   			<f:selectItems value="${modelStrada.selectItems}" />
 					   		</p:selectOneMenu>
+					   		<br />
+					   		<p:inputText value="#{modelSapp.selectedCopillSapp.nrCasa}" style="width:250px; margin-bottom: 5px"/>
+					   		<br />
+					   		<p:inputText value="#{modelSapp.selectedCopillSapp.app}" style="width:250px"/>
+					   		<br />
 					   	</p:column>
 					</p:row>
-					
-					
 					
 					<p:row styleClass="content2">
 						<p:column>
@@ -125,7 +130,7 @@
 					   		<h:outputText value="Note:" />
 					   	</p:column>
 					   	<p:column>
-					   		<p:inputTextarea rows="10" cols="22" value="#{modelSapp.selectedCopillSapp.note}" styleClass="content4"  onchange="PF('validateButtonWidget').enable()"/>
+					   		<p:inputTextarea rows="10" cols="22" value="#{modelSapp.selectedCopillSapp.note}" styleClass="content4" />
 					   	</p:column>
 					</p:row>
 					
@@ -136,7 +141,7 @@
 							<table>
 								<tr>
 									<td>
-										<p:commandButton  value="Editeaza" actionListener="#{modelSapp.updateCopil()}" widgetVar="validateButtonWidget" id="ajaxEditCopilSapp" look="success" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()" />
+										<p:commandButton  value="Editeaza" actionListener="#{modelSapp.updateCopil()}" styleClass="btn-success" widgetVar="validateButtonWidget" id="ajaxEditCopilSapp" update=":form:tableStateDT, :form:copillDetail, growl2" oncomplete="PF('dlgEditCopii').hide()"  />
 									</td>
 									<td style="padding: 5px">
 										<p:commandButton value="Anulare" id="ajaxeditCopilSappCancel" styleClass="btn btn-danger" update=""  oncomplete="PF('dlgEditCopii').hide()" />

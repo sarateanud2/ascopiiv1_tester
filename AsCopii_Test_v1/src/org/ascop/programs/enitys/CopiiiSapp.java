@@ -47,6 +47,18 @@ public class CopiiiSapp implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="categoria_art_8")
 	private CategArt8Tab categArt8Tab;
+	
+	@ManyToOne
+	@JoinColumn(name="raion")
+	private Raion raion;
+
+	public Raion getRaion() {
+		return raion;
+	}
+
+	public void setRaion(Raion raion) {
+		this.raion = raion;
+	}
 
 	//bi-directional many-to-one association to FormaProtectie
 	@ManyToOne
@@ -200,11 +212,11 @@ public class CopiiiSapp implements Serializable {
 		if(this.localitateBean != null) {
 			if(this.app != null) {
 			
-			return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
+			return this.raion.getRaionType().getPrescurtare() + " " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
 					this.stradaBean.getStradaTypeBean().getStradaType() + " " + this.stradaBean.getStrada() + " " + this.nrCasa + " " + this.app;
 			} else {
-				return this.localitateBean.getLocalitateTypeBean().getTypeLocalitate()+ ". " + this.localitateBean.getDenumire() + ", " +
-						this.stradaBean.getStradaTypeBean().getStradaType()+ " " +this.stradaBean.getStrada() + " " + this.nrCasa;
+				return this.raion.getRaionType().getPrescurtare() + " " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
+						this.stradaBean.getStradaTypeBean().getStradaType() + " " +this.stradaBean.getStrada() + " " + this.nrCasa;
 			}
 		} else {
 			return "nu este adresa";

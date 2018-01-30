@@ -11,8 +11,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="localitate_type")
-@NamedQuery(name="LocalitateType.findAll", query="SELECT l FROM LocalitateType l")
-public class LocalitateType implements Serializable {
+@NamedQuery(name="LocalitateType.findAll", query="SELECT l FROM LocalitateTypes l")
+public class LocalitateTypes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,13 +20,13 @@ public class LocalitateType implements Serializable {
 	private Integer id;
 
 	@Column(name="type_localitate")
-	private String typeLocalitate;
+	private String typeLocalitatess;
 
 	//bi-directional many-to-one association to Localitate
 	@OneToMany(mappedBy="localitateTypeBean")
 	private List<Localitate> localitates;
 
-	public LocalitateType() {
+	public LocalitateTypes() {
 	}
 
 	public Integer getId() {
@@ -37,12 +37,12 @@ public class LocalitateType implements Serializable {
 		this.id = id;
 	}
 
-	public String getTypeLocalitate() {
-		return this.typeLocalitate;
+	public String getTypeLocalitatess() {
+		return this.typeLocalitatess;
 	}
 
-	public void setTypeLocalitate(String typeLocalitate) {
-		this.typeLocalitate = typeLocalitate;
+	public void setTypeLocalitatess(String typeLocalitate) {
+		this.typeLocalitatess = typeLocalitate;
 	}
 
 	public List<Localitate> getLocalitates() {
@@ -66,5 +66,39 @@ public class LocalitateType implements Serializable {
 
 		return localitate;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LocalitateTypes other = (LocalitateTypes) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return typeLocalitatess;
+	}
+	
+	
+	
+	
 
 }

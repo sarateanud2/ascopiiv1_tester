@@ -5,13 +5,16 @@
 		<class>org.ascop.programs.enitys.CopiiiSapp</class>
 		<class>org.ascop.programs.enitys.FormaProtectie</class>
 		<class>org.ascop.programs.enitys.Localitate</class>
-		<class>org.ascop.programs.enitys.LocalitateType</class>
+		<class>org.ascop.programs.enitys.LocalitateTypes</class>
 		<class>org.ascop.programs.enitys.Parintii</class>
 		<class>org.ascop.programs.enitys.StatutTab</class>
 		<class>org.ascop.programs.enitys.Strada</class>
 		<class>org.ascop.programs.enitys.StradaType</class>
 		<class>org.ascop.programs.enitys.TipParinte</class>
+		<class>org.ascop.programs.enitys.RaionTypes</class>
+		<class>org.ascop.programs.enitys.Raion</class>
 		<properties>
+			<!-- <property name="javax.persistence.schema-generation.database.action" value="update"/>  -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ascop_v20_11"/>
 			<property name="javax.persistence.jdbc.user" value="postgres"/>
 			<property name="javax.persistence.jdbc.password" value="Apple2017!"/>

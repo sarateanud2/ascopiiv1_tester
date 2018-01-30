@@ -55,7 +55,7 @@ public class ModelStradaImpl implements ModelStrada, Converter {
 		Collections.sort(stradaList, ListComparator.getInstance());
 		stradaList.forEach(str -> {
 									map.put(str.getId(), str);
-									selectItems.add(new SelectItem(str, str.getStrada()));
+									selectItems.add(new SelectItem(str, str.getStradaTypeBean().getStradaType() + " " + str.getStrada()));
 									});
 	}
 
