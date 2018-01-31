@@ -11,8 +11,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
-@Table(name="raion_types")
+@Table(name="raion_type")
 public class RaionTypes implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -25,7 +26,7 @@ public class RaionTypes implements Serializable{
 	
 	private String denumire;
 	
-	@OneToMany(mappedBy="raionType")
+	@OneToMany(mappedBy="raionTypes")
 	private List<Raion> raion;
 
 	public Integer getId() {

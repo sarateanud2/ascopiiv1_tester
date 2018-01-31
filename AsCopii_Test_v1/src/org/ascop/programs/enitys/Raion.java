@@ -10,10 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.TableGenerator;
+import javax.persistence.Table;
+
 
 @Entity
-@TableGenerator(name="raion")
+@Table(name="raion")
 public class Raion implements Serializable{
 	
 	private static final long serialVersionUID = 1L; 
@@ -26,7 +27,7 @@ public class Raion implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="raion_type")
-	private RaionTypes raionType;
+	private RaionTypes raionTypes;
 	
 	@OneToMany(mappedBy="raion")
 	private List<CopiiiSapp> copiiiSapps;
@@ -48,11 +49,11 @@ public class Raion implements Serializable{
 	}
 
 	public RaionTypes getRaionType() {
-		return raionType;
+		return raionTypes;
 	}
 
 	public void setRaionType(RaionTypes raionType) {
-		this.raionType = raionType;
+		this.raionTypes = raionType;
 	}
 
 	public List<CopiiiSapp> getCopiiiSapps() {

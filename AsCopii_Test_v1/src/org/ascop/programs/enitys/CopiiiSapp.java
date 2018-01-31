@@ -212,10 +212,10 @@ public class CopiiiSapp implements Serializable {
 		if(this.localitateBean != null) {
 			if(this.app != null) {
 			
-			return this.raion.getRaionType().getPrescurtare() + " " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
+			return this.raion.getRaionType().getPrescurtare() + ". " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
 					this.stradaBean.getStradaTypeBean().getStradaType() + " " + this.stradaBean.getStrada() + " " + this.nrCasa + " " + this.app;
 			} else {
-				return this.raion.getRaionType().getPrescurtare() + " " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
+				return this.raion.getRaionType().getPrescurtare() + ". " + this.raion.getDenumire() + " " + this.localitateBean.getLocalitateTypeBean().getTypeLocalitatess() + ". " + this.localitateBean.getDenumire() + ", " +
 						this.stradaBean.getStradaTypeBean().getStradaType() + " " +this.stradaBean.getStrada() + " " + this.nrCasa;
 			}
 		} else {
