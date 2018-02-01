@@ -27,12 +27,15 @@
 	    		<h:graphicImage library="image" name="dpdc.gif" styleClass="navbar-left"/>
 	 		</div>
 	    </div>
-	    <ul class="nav navbar-nav navbar-right">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Page 1</a></li>
-	      <li><a href="#">Page 2</a></li>
-	      <li><a href="#">Page 3</a></li>
-	    </ul>
+	    <h:form>
+		    <ul class="nav navbar-nav navbar-right">
+		     <f:ajax render=":content">
+		      <li class="active"><h:commandLink action="#{modelNavPage.setPage('main')}" value="Principala" /></li>
+		      <li><h:commandLink action="#{modelNavPage.setPage('copiisapp')}" value="Copii SAPP" /></li>
+		      <li><h:commandLink action="#{modelNavPage.setPage('addadones')}" value="addadones" /></li>
+		     </f:ajax>
+		    </ul>
+	    </h:form>
 	  </div>
 	</nav>
 	<section class="container_head">

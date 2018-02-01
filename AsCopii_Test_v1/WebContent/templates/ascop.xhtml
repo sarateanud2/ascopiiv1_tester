@@ -20,8 +20,16 @@
 	  		<h3>Basic Navbar Example</h3>
 	  		<p>A navigation bar is a navigation header that is placed at the top of the page.</p>
 		</div>
+		
+	</ui:insert>
+	
+	
+	
+	<ui:insert name="content">
 		<div class="container-fluid">
-			<ui:include src="/templates/copiisapp.xhtml" />
+			<h:panelGroup id="content" layout="block">
+				<ui:include src="/templates/#{modelNavPage.page}.xhtml" />
+			</h:panelGroup>
 		</div>
 	</ui:insert>
 	
