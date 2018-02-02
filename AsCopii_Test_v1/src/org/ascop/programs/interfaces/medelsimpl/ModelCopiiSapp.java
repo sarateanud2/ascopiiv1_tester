@@ -79,8 +79,7 @@ public class ModelCopiiSapp implements org.ascop.programs.interfaces.medels.Mode
 		this.selectedParinti = selectedParinti;
 	}
 	
-	
-	
+
 //	=========================================================================
 
 

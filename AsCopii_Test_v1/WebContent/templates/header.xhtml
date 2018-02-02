@@ -29,11 +29,11 @@
 	    </div>
 	    <h:form>
 		    <ul class="nav navbar-nav navbar-right">
-		     <f:ajax render=":content">
-		      <li class="active"><h:commandLink action="#{modelNavPage.setPage('main')}" value="Principala" /></li>
-		      <li><h:commandLink action="#{modelNavPage.setPage('copiisapp')}" value="Copii SAPP" /></li>
-		      <li><h:commandLink action="#{modelNavPage.setPage('addadones')}" value="addadones" /></li>
-		     </f:ajax>
+		     
+		      <li class="#{modelNavPage.pag_1}"><h:commandLink action="#{modelNavPage.setPage('main')}" value="Principala" update=":content" /></li>
+		      <li class="#{modelNavPage.pag_2}"><h:commandLink action="#{modelNavPage.setPage('copiisapp')}" value="Copii SAPP" update=":content" /></li>
+		      <li class="#{modelNavPage.pag_3}"><h:commandLink action="#{modelNavPage.setPage('addadones')}" value="addadones" /></li>
+		     
 		    </ul>
 	    </h:form>
 	  </div>
