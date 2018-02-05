@@ -52,7 +52,24 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>library</param-value>
     </context-param>
-
-
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+        <cookie-config>
+            <name>SESSIONID</name>
+        </cookie-config>
+    </session-config>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/index.xhtml</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/index.xhtml</location>
+    </error-page>
    
 </web-app>
