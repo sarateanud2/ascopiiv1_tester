@@ -72,7 +72,17 @@ public class CopiiiSapp implements Serializable {
 	@ManyToMany(mappedBy="copiiiSapps")
 	private List<Parintii> parintiis;
 	
+	@ManyToOne
+	@JoinColumn(name="raion")
+	private Raion raion;	
 	
+	public Raion getRaion() {
+		return raion;
+	}
+
+	public void setRaion(Raion raion) {
+		this.raion = raion;
+	}
 
 	public CopiiiSapp() {
 	}
