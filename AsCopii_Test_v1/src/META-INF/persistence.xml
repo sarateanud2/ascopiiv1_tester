@@ -11,10 +11,10 @@
 		<class>org.ascop.programs.enitys.Strada</class>
 		<class>org.ascop.programs.enitys.StradaType</class>
 		<class>org.ascop.programs.enitys.TipParinte</class>
-		<class>org.ascop.programs.enitys.TestTab1</class>
-		<class>org.ascop.programs.enitys.TestTab2</class>
 		<class>org.ascop.programs.enitys.RaionType</class>
 		<class>org.ascop.programs.enitys.Raion</class>
+		<class>org.ascop.programs.abstracts.enitys.Copil</class>
+		<class>org.ascop.programs.abstracts.enitys.Parinte</class>
 		<properties>
 
 			<property name="javax.persistence.schema-generation.database.action" value="update"/>

@@ -20,5 +20,41 @@
     font-weight: lighter!important;
 }
 
+@charset "UTF-8";
+
+.container_head{
+	height: 20px;
+	background: #000;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+.logoType{
+	
+	width: auto;
+	height: auto;
+	margin-top: -45px;
+	margin-left: 10px;
+}
+
+.container_head {
+	padding-top: -10px;
+	height: 10px;
+	background: #000;
+}
+}
+
+@media only screen and (max-width: 800px) {
+.logoType{
+
+	width: 0%;
+}
+}
+
+
 
 
