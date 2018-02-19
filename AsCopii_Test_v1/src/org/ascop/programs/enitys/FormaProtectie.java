@@ -2,6 +2,9 @@ package org.ascop.programs.enitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.ascop.programs.abstracts.enitys.CopilBaseModelUsed;
+
 import java.util.List;
 
 
@@ -13,6 +16,14 @@ import java.util.List;
 @Table(name="forma_protectie")
 @NamedQuery(name="FormaProtectie.findAll", query="SELECT f FROM FormaProtectie f")
 public class FormaProtectie implements Serializable {
+	public List<CopilBaseModelUsed> getCopilBaseModelUseds() {
+		return copilBaseModelUseds;
+	}
+
+	public void setCopilBaseModelUseds(List<CopilBaseModelUsed> copilBaseModelUseds) {
+		this.copilBaseModelUseds = copilBaseModelUseds;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,6 +37,9 @@ public class FormaProtectie implements Serializable {
 	//bi-directional many-to-one association to CopiiiSapp
 	@OneToMany(mappedBy="formaProtectie")
 	private List<CopiiiSapp> copiiiSapps;
+	
+	@OneToMany(mappedBy="formaProtectie")
+	private List<CopilBaseModelUsed> copilBaseModelUseds;
 
 	public FormaProtectie() {
 	}

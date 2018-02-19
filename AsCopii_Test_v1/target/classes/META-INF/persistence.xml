@@ -15,6 +15,16 @@
 		<class>org.ascop.programs.enitys.Raion</class>
 		<class>org.ascop.programs.abstracts.enitys.Copil</class>
 		<class>org.ascop.programs.abstracts.enitys.Parinte</class>
+		<class>org.ascop.programs.abstracts.enitys.ParinteBaseModelUsed</class>
+		<class>org.ascop.programs.enitys.recreate.CopiiSapp</class>
+		<class>org.ascop.programs.abstracts.enitys.CopilBaseModelUsed</class>
+		<class>org.ascop.programs.enitys.recreate.CopilConflictLege</class>
+		<class>org.ascop.programs.enitys.recreate.CopilInternatulTrei</class>
+		<class>org.ascop.programs.enitys.recreate.Centrele</class>
+		<class>org.ascop.programs.enitys.recreate.CopNevSpecAflatiPlasPlanif</class>
+		<class>org.ascop.programs.enitys.recreate.CopNevSpecAflatiPlasPlaniflaCmprcvf</class>
+		<class>org.ascop.programs.enitys.recreate.CopNevSpecAflatiServZi</class>
+		<class>org.ascop.programs.enitys.recreate.TutelaCuratela</class>
 		<properties>
 
 			<property name="javax.persistence.schema-generation.database.action" value="update"/>

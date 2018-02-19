@@ -2,6 +2,10 @@ package org.ascop.programs.enitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.ascop.programs.abstracts.enitys.CopilBaseModelUsed;
+import org.ascop.programs.abstracts.enitys.ParinteBaseModelUsed;
+
 import java.util.List;
 
 
@@ -12,6 +16,22 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Strada.findAll", query="SELECT s FROM Strada s")
 public class Strada implements Serializable {
+	public List<ParinteBaseModelUsed> getParinteBaseModelUsed() {
+		return parinteBaseModelUsed;
+	}
+
+	public void setParinteBaseModelUsed(List<ParinteBaseModelUsed> parinteBaseModelUsed) {
+		this.parinteBaseModelUsed = parinteBaseModelUsed;
+	}
+
+	public List<CopilBaseModelUsed> getCopilBaseModelUsed() {
+		return copilBaseModelUsed;
+	}
+
+	public void setCopilBaseModelUsed(List<CopilBaseModelUsed> copilBaseModelUsed) {
+		this.copilBaseModelUsed = copilBaseModelUsed;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,6 +43,12 @@ public class Strada implements Serializable {
 	//bi-directional many-to-one association to CopiiiSapp
 	@OneToMany(mappedBy="stradaBean")
 	private List<CopiiiSapp> copiiiSapps;
+	
+	@OneToMany(mappedBy="stradaBean")
+	private List<ParinteBaseModelUsed> parinteBaseModelUsed;
+	
+	@OneToMany(mappedBy="stradaBean")
+	private List<CopilBaseModelUsed> copilBaseModelUsed;
 
 	//bi-directional many-to-one association to StradaType
 	@ManyToOne

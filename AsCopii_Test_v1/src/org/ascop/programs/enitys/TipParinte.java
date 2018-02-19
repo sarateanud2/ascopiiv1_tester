@@ -1,7 +1,8 @@
 package org.ascop.programs.enitys;
 
 import java.io.Serializable;
-import javax.persistence.*;import org.ascop.programs.abstracts.enitys.Parinte;
+import javax.persistence.*;
+import org.ascop.programs.abstracts.enitys.ParinteBaseModelUsed;
 
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class TipParinte implements Serializable {
 	//bi-directional many-to-one association to Parintii
 	@OneToMany(mappedBy="tipParinte")
 	private List<Parintii> parintiis;
+	
+	@OneToMany(mappedBy="tipParinte")
+	private List<ParinteBaseModelUsed> parinte;
 	
 	public TipParinte() {
 	}

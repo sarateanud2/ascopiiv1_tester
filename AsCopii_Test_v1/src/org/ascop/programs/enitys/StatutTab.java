@@ -2,6 +2,9 @@ package org.ascop.programs.enitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.ascop.programs.abstracts.enitys.CopilBaseModelUsed;
+
 import java.util.List;
 
 
@@ -13,6 +16,14 @@ import java.util.List;
 @Table(name="statut_tab")
 @NamedQuery(name="StatutTab.findAll", query="SELECT s FROM StatutTab s")
 public class StatutTab implements Serializable {
+	public List<CopilBaseModelUsed> getCopilBaseModelUseds() {
+		return copilBaseModelUseds;
+	}
+
+	public void setCopilBaseModelUseds(List<CopilBaseModelUsed> copilBaseModelUseds) {
+		this.copilBaseModelUseds = copilBaseModelUseds;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,6 +37,9 @@ public class StatutTab implements Serializable {
 	//bi-directional many-to-one association to CopiiiSapp
 	@OneToMany(mappedBy="statutTab")
 	private List<CopiiiSapp> copiiiSapps;
+	
+	@OneToMany(mappedBy="statutTab")
+	private List<CopilBaseModelUsed> copilBaseModelUseds;
 
 	public StatutTab() {
 	}

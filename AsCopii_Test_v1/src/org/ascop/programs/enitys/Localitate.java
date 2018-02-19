@@ -2,6 +2,10 @@ package org.ascop.programs.enitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.ascop.programs.abstracts.enitys.CopilBaseModelUsed;
+import org.ascop.programs.abstracts.enitys.ParinteBaseModelUsed;
+
 import java.util.List;
 
 
@@ -12,6 +16,22 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Localitate.findAll", query="SELECT l FROM Localitate l")
 public class Localitate implements Serializable {
+	public List<ParinteBaseModelUsed> getParinteBaseModelUsed() {
+		return parinteBaseModelUsed;
+	}
+
+	public void setParinteBaseModelUsed(List<ParinteBaseModelUsed> parinteBaseModelUsed) {
+		this.parinteBaseModelUsed = parinteBaseModelUsed;
+	}
+
+	public List<CopilBaseModelUsed> getCopilBaseModelUsed() {
+		return copilBaseModelUsed;
+	}
+
+	public void setCopilBaseModelUsed(List<CopilBaseModelUsed> copilBaseModelUsed) {
+		this.copilBaseModelUsed = copilBaseModelUsed;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,6 +43,12 @@ public class Localitate implements Serializable {
 	//bi-directional many-to-one association to CopiiiSapp
 	@OneToMany(mappedBy="localitateBean")
 	private List<CopiiiSapp> copiiiSapps;
+	
+	@OneToMany(mappedBy="localitateBean")
+	private List<ParinteBaseModelUsed> parinteBaseModelUsed;
+	
+	@OneToMany(mappedBy="localitateBean")
+	private List<CopilBaseModelUsed> copilBaseModelUsed;
 
 	//bi-directional many-to-one association to LocalitateType
 	@ManyToOne

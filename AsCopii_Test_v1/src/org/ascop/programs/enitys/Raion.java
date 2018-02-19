@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.ascop.programs.abstracts.enitys.CopilBaseModelUsed;
+import org.ascop.programs.abstracts.enitys.ParinteBaseModelUsed;
+
 /**
  * Entity implementation class for Entity: Raion
  *
@@ -12,6 +15,14 @@ import javax.persistence.*;
 @Entity
 @Table(name="raion")
 public class Raion implements Serializable {
+
+	public List<CopilBaseModelUsed> getCopilBaseModelUseds() {
+		return copilBaseModelUseds;
+	}
+
+	public void setCopilBaseModelUseds(List<CopilBaseModelUsed> copilBaseModelUseds) {
+		this.copilBaseModelUseds = copilBaseModelUseds;
+	}
 
 	private static final long serialVersionUID = 1L;
 	
@@ -31,6 +42,20 @@ public class Raion implements Serializable {
 	
 	@OneToMany(mappedBy="raion")
 	private List<CopiiiSapp> copiiSapp;
+	
+	@OneToMany(mappedBy="raion")
+	private List<ParinteBaseModelUsed> parinteBaseModelUseds;
+	
+	@OneToMany(mappedBy="raion")
+	private List<CopilBaseModelUsed> copilBaseModelUseds;
+	
+	public List<ParinteBaseModelUsed> getParinteBaseModelUseds() {
+		return parinteBaseModelUseds;
+	}
+
+	public void setParinteBaseModelUseds(List<ParinteBaseModelUsed> parinteBaseModelUseds) {
+		this.parinteBaseModelUseds = parinteBaseModelUseds;
+	}
 
 	public Raion() {
 		super();
